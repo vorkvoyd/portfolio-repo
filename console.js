@@ -10,6 +10,19 @@ document.addEventListener("DOMContentLoaded", function () {
     
     let savedCodes = JSON.parse(localStorage.getItem("savedCodes")) || [];
 
+    function renderSavedCodes() {
+        savedCodesList.innerHTML = "";
+        savedCodes.forEach((item, index) => {
+            let li = document.createElement("li");
+            li.innerHTML = `
+                <span>${item.title}</span>
+                <button class="load-code" data-index="${index}">Load</button>
+                <button class="delete-code" data-index="${index}">Delete</button>
+            `;
+            savedCodesList.appendChild(li);
+        });
+    }
+
     // Capture console.log and display it in the output
     (function () {
         const oldLog = console.log;
@@ -71,5 +84,17 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // Prevent Tab Key from Leaving the Code Input Box
+    if (codeInput) {
+        codeInput.addEventListener("keydown", function (e) {
+            if (e.key === "Tab") {
+                e.preventDefault();
+                const start = this.selectionStart;
+                const end = this.selectionEnd;
+                this.value = this.value.substring(0, start) + "\t" + this.value.substring(end);
+                this.selectionStart = this.selectionEnd = start + 1;
+            }
+        });
+    }
     renderSavedCodes();
 });
