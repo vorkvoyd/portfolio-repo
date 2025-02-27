@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <script src="script.js"></script>
+
+    <button id="dark-mode-toggle"></button>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home">
+        <h1>Welcome to My Portfolio</h1>
+        <p>John James | Aspiring Developer</p>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p id="about-text"></p>
+    </section>
+    
+    <section id="experience">
+        <h2>Experience</h2>
+        <p id="experience-text"></p>
+    </section>
+    
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul id="skills-list"></ul>
+    </section>
+    
+    <section id="projects">
+        <h2>Projects</h2>
+        <p>Here are some of the projects I'm working on!</p>
+        <div id="projects-list">
+            <!-- Projects will be inserted here -->
+        </div>
+    </section>
+    
+    <section id="books">
+        <h2>Books I'm Studying</h2>
+        <p>Here are some books I'm currently working through!</p>
+        <div id="books-list"></div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Links to your social media or email.</p>
+
+        <form id="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+
+    </section>
+    
+</body>
+</html>
