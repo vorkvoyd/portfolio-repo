@@ -65,8 +65,8 @@ document.addEventListener("DOMContentLoaded", function () {
             savedCodes.push({ title: title, code: codeInput.value });
             localStorage.setItem("savedCodes", JSON.stringify(savedCodes));
             renderSavedCodes();
-            if (titleInput) titleInput.value = "";
-            codeInput.value = "";
+            // if (titleInput) titleInput.value = "";
+            // codeInput.value = "";
         }
     });
 
@@ -97,17 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Prevent clearing input after saving
-    if (saveButton) {
-        saveButton.addEventListener("click", function () {
-            const savedCode = codeInput.value;
-            const savedTitle = titleInput.value;
-            setTimeout(() => {
-                codeInput.value = savedCode;
-                titleInput.value = savedTitle;
-            }, 100); // Ensures the text is reloaded after saving
-        });
-    }
+
 
     renderSavedCodes();
 });
