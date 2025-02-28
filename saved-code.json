@@ -1,0 +1,27 @@
+{
+    "snippets": [
+      {
+        "title": "Hello World",
+        "code": [
+          "console.log('Hello, world!');"
+        ]
+      },
+      {
+        "title": "For Loop Example",
+        "code": [
+          "for (let i = 0; i < 5; i++) {",
+          "    console.log(i);",
+          "}"
+        ]
+      },
+      {
+        "title": "Function Example",
+        "code": [
+          "function greet(name) {",
+          "    return 'Hello, ' + name;",
+          "}",
+          "console.log(greet('Alice'));"
+        ]
+      }
+    ]
+  }
