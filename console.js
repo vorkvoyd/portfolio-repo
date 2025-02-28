@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then(data => {
                     titleInput.value = data.snippets[index].title;
                     codeInput.value = data.snippets[index].code;
+                    codeInput.value = data.snippets[index].code.join("\n");
                 })
                 .catch(error => console.error("Error loading code:", error));
         }
