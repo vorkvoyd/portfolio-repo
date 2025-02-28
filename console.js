@@ -8,8 +8,41 @@ document.addEventListener("DOMContentLoaded", function () {
     const saveButton = document.getElementById("save-code");
     const savedCodesList = document.getElementById("saved-codes");
     
-    let savedCodes = JSON.parse(localStorage.getItem("savedCodes")) || [];
+    
+    // Fetch saved snippets from GitHub
+    function loadSavedSnippets() {
+        fetch("https://raw.githubusercontent.com/vorkvoyd/portfolio-repo/main/saved-codes.json")
+            .then(response => response.json())
+            .then(data => {
+                savedCodesList.innerHTML = ""; // Clear list
+                data.snippets.forEach((snippet, index) => {
+                    let li = document.createElement("li");
+                    li.innerHTML = `
+                        <span>${snippet.title}</span>
+                        <button class="load-code" data-index="${index}">Load</button>
+                    `;
+                    savedCodesList.appendChild(li);
+                });
+            })
+            .catch(error => console.error("Error loading saved snippets:", error));
+    }
 
+    // Load saved snippet into input fields
+    savedCodesList.addEventListener("click", function (e) {
+        if (e.target.classList.contains("load-code")) {
+            let index = e.target.dataset.index;
+            fetch("https://raw.githubusercontent.com/vorkvoyd/portfolio-repo/main/saved-codes.json")
+                .then(response => response.json())
+                .then(data => {
+                    titleInput.value = data.snippets[index].title;
+                    codeInput.value = data.snippets[index].code;
+                })
+                .catch(error => console.error("Error loading code:", error));
+        }
+    });   
+    
+    let savedCodes = JSON.parse(localStorage.getItem("savedCodes")) || [];
+    
     function renderSavedCodes() {
         savedCodesList.innerHTML = "";
         savedCodes.forEach((item, index) => {
