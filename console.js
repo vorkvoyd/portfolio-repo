@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Fetch saved snippets from GitHub
     function loadSavedSnippets() {
-        fetch("https://raw.githubusercontent.com/vorkvoyd/portfolio-repo/main/saved-codes.json")
+        fetch("https://raw.githubusercontent.com/vorkvoyd/portfolio-repo/main/saved-code.json")
             .then(response => response.json())
             .then(data => {
                 savedCodesList.innerHTML = ""; // Clear list
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     savedCodesList.addEventListener("click", function (e) {
         if (e.target.classList.contains("load-code")) {
             let index = e.target.dataset.index;
-            fetch("https://raw.githubusercontent.com/vorkvoyd/portfolio-repo/main/saved-codes.json")
+            fetch("https://raw.githubusercontent.com/vorkvoyd/portfolio-repo/main/saved-code.json")
                 .then(response => response.json())
                 .then(data => {
                     titleInput.value = data.snippets[index].title;

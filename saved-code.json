@@ -7,6 +7,20 @@
         ]
       },
       {
+        "title": "load variables",
+        "code": [
+            "x=2",
+            "y='hello'",
+            "z='world'"
+        ]
+      },
+      {
+        "title": "console out",
+        "code": [
+            "console.log(y+' '+z)"
+        ]
+      },
+      {
         "title": "For Loop Example",
         "code": [
           "for (let i = 0; i < 5; i++) {",
@@ -21,6 +35,18 @@
           "    return 'Hello, ' + name;",
           "}",
           "console.log(greet('Alice'));"
+        ]
+      },
+      {
+        "title": "triangle loop",
+        "code": [
+            "for(let x =0; x<=5;x++){",
+                "let pstring = ''",
+                "for(let y=0;y<=x; y++){",
+                "    pstring += '#'",
+             "   }",
+            "    console.log(pstring)",
+            "}"
         ]
       }
     ]
