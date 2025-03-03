@@ -61,7 +61,7 @@ h1, h2 {
 }
 
 /* Dark Mode Styling */
-.dark-mode h1, h2 {
+.dark-mode h1,.dark-mode h2 {
     color: rgba(255, 255, 255, 0.719);
 }
 
