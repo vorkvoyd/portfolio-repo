@@ -39,20 +39,42 @@ document.addEventListener("DOMContentLoaded", function () {
                     <h4>${book.title}</h4>
                     <p><strong>Author:</strong> ${book.author}</p>
                     <p>${book.description}</p>
-                    <a href="${book.link}" target="_blank">Read More</a>
                 `;
-                if (book.link) {
-                    bookCard.style.cursor = "pointer";
-                    bookCard.addEventListener("click", function () {
+                
+                if (book.title === "Eloquent JavaScript") {
+                    let buttonContainer = document.createElement("div");
+                    buttonContainer.className = "book-buttons";
+                    
+                    let codeTerminalButton = document.createElement("button");
+                    codeTerminalButton.textContent = "Go to Code Terminal";
+                    codeTerminalButton.addEventListener("click", function () {
+                        window.location.href = "eloquent-js-console.html";
+                    });
+                    
+                    let bookPageButton = document.createElement("button");
+                    bookPageButton.textContent = "Read Book";
+                    bookPageButton.addEventListener("click", function () {
                         window.location.href = book.link;
                     });
+                    
+                    buttonContainer.appendChild(codeTerminalButton);
+                    buttonContainer.appendChild(bookPageButton);
+                    bookCard.appendChild(buttonContainer);
+                } else {
+                    let bookLink = document.createElement("a");
+                    bookLink.href = book.link;
+                    bookLink.target = "_blank";
+                    bookLink.textContent = "Read More";
+                    bookCard.appendChild(bookLink);
                 }
+                
                 booksContainer.appendChild(bookCard);
             });
         }
     } else {
         console.error("❌ Books section not found!");
     }
+
 
     // Projects Section Update
     const projectsContainer = document.getElementById("projects-list");
